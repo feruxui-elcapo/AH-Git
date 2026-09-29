@@ -214,6 +214,19 @@
     restart();
   });
 
+  /* ------------------------------------------------------- WhatsApp ----- */
+  (function whatsapp() {
+    var wrap = document.querySelector('[data-whatsapp]');
+    if (!wrap) return;
+    var closeBtn = wrap.querySelector('[data-whatsapp-close]');
+    if (sessionStorage.getItem('ah-whatsapp-dismissed') === '1') wrap.classList.add('is-dismissed');
+    closeBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      wrap.classList.add('is-dismissed');
+      try { sessionStorage.setItem('ah-whatsapp-dismissed', '1'); } catch (err) {}
+    });
+  })();
+
   /* ------------------------------------------ Animaciones de entrada ---- */
   (function fadeUp() {
     var nodes = document.querySelectorAll('.fade-up');

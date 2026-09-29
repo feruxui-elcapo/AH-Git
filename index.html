@@ -549,11 +549,18 @@
 </footer>
 
 <!-- ================================================= Botón de WhatsApp -->
-<a class="whatsapp"
-   href="https://wa.me/5492615439850?text=%C2%A1Hola!%20Quiero%20saber%20m%C3%A1s%20sobre%20Alternativa%20Humus"
-   target="_blank" rel="noopener" aria-label="Contactanos por WhatsApp">
-  <img src="assets/img/whatsapp.svg" alt="">
-  <span class="whatsapp__tip">Contactanos, dejá tu mensaje por Whatsapp</span>
-</a>
+<div class="whatsapp-wrap" data-whatsapp>
+  <div class="whatsapp__tip">
+    <span>Contactanos, dejá tu mensaje por Whatsapp</span>
+    <button type="button" class="whatsapp__close" data-whatsapp-close aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="M6 6l12 12"></path></svg>
+    </button>
+  </div>
+  <a class="whatsapp"
+     href="https://wa.me/5492615439850?text=%C2%A1Hola!%20Quiero%20saber%20m%C3%A1s%20sobre%20Alternativa%20Humus"
+     target="_blank" rel="noopener" aria-label="Contactanos por WhatsApp">
+    <img src="assets/img/whatsapp.svg" alt="">
+  </a>
+</div>
 
 <script src="assets/js/main.js" defer></script>

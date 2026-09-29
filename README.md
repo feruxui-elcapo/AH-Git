@@ -62,16 +62,29 @@ Los breakpoints son los mismos que usaba el sitio original: `1200px`, `907px`, `
 - **Hero**: slideshow de 3 imágenes con fundido, cambia cada 3 s (igual que el original).
 - **"Qué hacemos"**: las palabras se van revelando (blur + opacidad) según el scroll.
 - **Contadores**: animan de 0 al valor final cuando la sección entra en pantalla.
-- **Trabajos**: carrusel con 2 tarjetas visibles en desktop, flechas al pasar el mouse, puntos y autoplay cada 5 s.
+- **Trabajos**: carrusel con 2 tarjetas visibles en desktop, flechas siempre visibles, puntos y autoplay cada 5 s.
+- **WhatsApp**: el globito con el mensaje aparece visible desde que carga la página (como en el original) y se
+  puede cerrar con la X; queda cerrado mientras dure la pestaña (`sessionStorage`).
 - Todo respeta `prefers-reduced-motion`: si el visitante pidió menos animaciones, se muestra sin movimiento.
+
+## Sobre los hovers
+
+Antes de escribir el CSS probé, uno por uno, los hovers reales del sitio de Framer (con eventos de mouse
+genuinos, no simulados, comparando `getComputedStyle` antes/después): links del menú, los botones ("Contactar",
+"Ver más", "Ir a tienda"), logos de clientes, fotos del equipo, imágenes del carrusel de trabajos y los links
+del pie de página. **Ninguno tiene efecto hover** — ni cambio de color, ni de opacidad, ni de escala. Por eso
+esta versión tampoco les puso ninguno: es fiel al original, no que haya quedado incompleta.
+Las únicas excepciones reales del sitio original son las flechas del carrusel (siempre visibles) y el globito
+de WhatsApp (siempre visible), ya reflejadas arriba.
 
 ## Detalles heredados del sitio original (por si los querés cambiar)
 
 1. **Botones "Ver más" de Servicios**: en el sitio de Framer no tienen enlace, así que acá quedaron como
    `<button>` sin acción. Para activarlos, reemplazá el `<button class="btn btn--block">` por
    `<a class="btn btn--block" href="...">`.
-2. **Descripciones de los 4 pasos**: en el original están en color transparente (no se ven).
-   Acá se muestran al pasar el mouse por el paso, y siempre en mobile. Si querés que se vean siempre en desktop,
+2. **Descripciones de los 4 pasos**: en el original están en color transparente y nunca se ven en desktop
+   (ni con hover) — un error de carga del sitio viejo. Se replicó tal cual: en desktop quedan invisibles,
+   en mobile sí se ven (ahí el original las fuerza visibles). Si en algún momento preferís mostrarlas siempre,
    borrá `color: transparent;` de `.paso__text` en `styles.css`.
 3. **Anclas del menú**: se mantuvieron los ids originales (`#sevices`, `#about`, `#team`, `#store`) para que
    cualquier link viejo siga funcionando. `#sevices` tiene ese error de tipeo desde el sitio anterior.
