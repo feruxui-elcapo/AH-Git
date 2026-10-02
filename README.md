@@ -74,8 +74,15 @@ genuinos, no simulados, comparando `getComputedStyle` antes/después): links del
 "Ver más", "Ir a tienda"), logos de clientes, fotos del equipo, imágenes del carrusel de trabajos y los links
 del pie de página. **Ninguno tiene efecto hover** — ni cambio de color, ni de opacidad, ni de escala. Por eso
 esta versión tampoco les puso ninguno: es fiel al original, no que haya quedado incompleta.
-Las únicas excepciones reales del sitio original son las flechas del carrusel (siempre visibles) y el globito
-de WhatsApp (siempre visible), ya reflejadas arriba.
+Las flechas del carrusel y el globito de WhatsApp están siempre visibles (ya reflejado arriba).
+
+**La única interacción real de hover son las tarjetas de Servicios.** En reposo muestran foto, pill oscura con
+el nombre y el botón "Ver más". Al pasar el mouse la tarjeta pasa a fondo beige (`--beige`), la foto y el botón
+desaparecen, la pill queda transparente con el título en gris, y aparece una lista de 4 puntos con tilde que
+detalla el servicio (en "Capacitaciones" el título pasa a "Capacitaciones y acompañamiento"). En pantallas
+táctiles se tocan: tocar una tarjeta la expande, tocar otra cierra la anterior y tocar afuera las cierra todas.
+El texto de cada lista está en `index.html` (`.servicio__checklist`); los estilos del estado expandido, en
+`styles.css` bajo "Tarjeta expandida".
 
 ## Detalles heredados del sitio original (por si los querés cambiar)
 

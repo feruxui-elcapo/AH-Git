@@ -214,6 +214,24 @@
     restart();
   });
 
+  /* ------------------------------------------------ Servicios (touch) ----
+     Con mouse la tarjeta se expande por :hover (CSS). En pantallas táctiles
+     no hay hover: tocar una tarjeta la expande, tocar en cualquier otro lado
+     la vuelve a cerrar (mismo comportamiento que el sitio original). */
+  (function servicios() {
+    var cards = Array.prototype.slice.call(document.querySelectorAll('[data-servicio]'));
+    if (!cards.length) return;
+    var canHover = window.matchMedia('(hover: hover)');
+
+    document.addEventListener('click', function (e) {
+      if (canHover.matches) return;
+      var hit = e.target.closest ? e.target.closest('[data-servicio]') : null;
+      cards.forEach(function (card) {
+        card.classList.toggle('is-expanded', card === hit);
+      });
+    });
+  })();
+
   /* ------------------------------------------------------- WhatsApp ----- */
   (function whatsapp() {
     var wrap = document.querySelector('[data-whatsapp]');

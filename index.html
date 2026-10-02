@@ -79,36 +79,59 @@
 
     <div class="servicios__grid">
       <!-- En el sitio original el botón "Ver más" no tiene enlace todavía.
-           Para activarlo, reemplazá <button> por <a href="..." class="btn btn--block">. -->
-      <article class="servicio fade-up">
+           Para activarlo, reemplazá <button> por <a href="..." class="btn btn--block">.
+           Al pasar el mouse (o tocar en mobile) la tarjeta cambia a fondo beige y
+           muestra el detalle del servicio; ver data-servicio-toggle en main.js. -->
+      <article class="servicio fade-up" data-servicio>
         <div class="servicio__bg"><img src="assets/img/servicio-1.png" alt="" loading="lazy"></div>
         <div class="servicio__body">
           <div class="servicio__pill">
             <div class="servicio__icon"><img src="assets/img/servicio-icono-1.png" alt="" loading="lazy"></div>
-            <p>Compostaje en organizaciones</p>
+            <p class="servicio__title--rest">Compostaje en organizaciones</p>
+            <p class="servicio__title--expanded">Compostaje en organizaciones</p>
           </div>
+          <ul class="servicio__checklist">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Analizamos la operación y el volumen de residuos.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Diseñamos e instalamos el sistema más adecuado.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Capacitamos a los equipos involucrados.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Acompañamos la implementación</span></li>
+          </ul>
         </div>
         <button class="btn btn--block" type="button">Ver más</button>
       </article>
 
-      <article class="servicio fade-up">
+      <article class="servicio fade-up" data-servicio>
         <div class="servicio__bg"><img src="assets/img/servicio-2.png" alt="" loading="lazy"></div>
         <div class="servicio__body">
           <div class="servicio__pill">
             <div class="servicio__icon"><img src="assets/img/servicio-icono-2.png" alt="" loading="lazy"></div>
-            <p>Retiro y valorización de residuos</p>
+            <p class="servicio__title--rest">Retiro y valorización de residuos</p>
+            <p class="servicio__title--expanded">Retiro y valorización de residuos</p>
           </div>
+          <ul class="servicio__checklist">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Retiro programado de residuos orgánicos.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Compostaje con registro y trazabilidad.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Entrega de métricas de impacto claras.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Posibilidad de recibir compost para huertas, jardines o proyectos propios.</span></li>
+          </ul>
         </div>
         <button class="btn btn--block" type="button">Ver más</button>
       </article>
 
-      <article class="servicio fade-up">
+      <article class="servicio fade-up" data-servicio>
         <div class="servicio__bg"><img src="assets/img/servicio-3.png" alt="" loading="lazy"></div>
         <div class="servicio__body">
           <div class="servicio__pill">
             <div class="servicio__icon"><img src="assets/img/servicio-icono-3.png" alt="" loading="lazy"></div>
-            <p>Capacitaciones</p>
+            <p class="servicio__title--rest">Capacitaciones</p>
+            <p class="servicio__title--expanded">Capacitaciones y acompañamiento</p>
           </div>
+          <ul class="servicio__checklist">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Talleres introductorios sobre sostenibilidad y compostaje.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Capacitaciones prácticas para implementar compostaje en la organización.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Mejora de la separación de residuos en el día a día.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Acompañamiento en la adopción de estas prácticas.</span></li>
+          </ul>
         </div>
         <button class="btn btn--block" type="button">Ver más</button>
       </article>

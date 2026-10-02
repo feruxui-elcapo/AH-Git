@@ -427,13 +427,18 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   height: 415px;
   padding: 40px 20px;
   border-radius: 20px;
+  background: transparent;
   box-shadow: 0 2px 15px 0 rgba(0, 0, 0, .17);
   overflow: hidden;
+  transition: background-color .25s ease;
 }
+
+/* Estado base: foto + pill oscura + botón (igual que en reposo del original) */
 .servicio__bg {
   position: absolute;
   inset: 0;
   z-index: 0;
+  transition: opacity .25s ease;
 }
 .servicio__bg img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -455,6 +460,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   padding: 10px 20px;
   border-radius: 1000px;
   background: rgba(0, 0, 0, .53);
+  transition: background-color .25s ease;
 }
 .servicio__icon {
   position: relative;
@@ -472,25 +478,66 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   height: 29px;
   object-fit: contain;
 }
-.servicio__pill p { font-size: 18px; line-height: 1.4; color: var(--white); }
+.servicio__title--rest,
+.servicio__title--expanded { font-size: 18px; line-height: 1.4; }
+.servicio__title--rest { color: var(--white); }
+.servicio__title--expanded { display: none; color: var(--muted); }
 
-.servicio .btn { position: relative; z-index: 1; }
+.servicio .btn { position: relative; z-index: 1; transition: opacity .2s ease; }
+
+/* Lista de detalle: oculta hasta que la tarjeta se expande */
+.servicio__checklist {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.servicio__checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.4;
+}
+.servicio__checklist svg { flex: none; width: 20px; height: 20px; color: var(--dark); }
+
+/* Tarjeta expandida: con mouse real al hacer hover; en touch, al tocarla
+   (ver servicios en main.js) — igual que en el sitio original. Se pasa de
+   foto + pill oscura + botón a fondo beige + detalle del servicio. */
+.servicio.is-expanded { background: var(--beige); }
+.servicio.is-expanded .servicio__bg { opacity: 0; }
+.servicio.is-expanded .servicio__body { justify-content: center; }
+.servicio.is-expanded .servicio__pill { background: transparent; }
+.servicio.is-expanded .servicio__title--rest { display: none; }
+.servicio.is-expanded .servicio__title--expanded { display: block; }
+.servicio.is-expanded .servicio__checklist { display: flex; }
+.servicio.is-expanded .btn { display: none; }
+
+@media (hover: hover) {
+  .servicio:hover { background: var(--beige); }
+  .servicio:hover .servicio__bg { opacity: 0; }
+  .servicio:hover .servicio__body { justify-content: center; }
+  .servicio:hover .servicio__pill { background: transparent; }
+  .servicio:hover .servicio__title--rest { display: none; }
+  .servicio:hover .servicio__title--expanded { display: block; }
+  .servicio:hover .servicio__checklist { display: flex; }
+  .servicio:hover .btn { display: none; }
+}
 
 @media (max-width: 1199.98px) {
   .servicios { padding: 70px 0; }
   .servicios__inner { padding: 0 30px; }
   .servicios__grid { flex-direction: column; }
+  .servicio { width: 100%; height: 366px; }
 }
-@media (max-width: 906.98px) { .servicios { padding: 30px 0; } }
+@media (max-width: 906.98px) {
+  .servicios { padding: 30px 0; }
+  .servicio { height: 415px; }
+}
 @media (max-width: 809.98px) {
   .servicios { padding: 35px 0 70px; }
   .servicios__inner { padding: 52px 20px; }
-  /* En mobile la tarjeta se compacta: sólo la etiqueta sobre la foto */
-  .servicio { width: 100%; height: auto; }
-  .servicio__body { flex: none; }
-  .servicio__icon { display: none; }
-  .servicio .btn { display: none; }
-  .servicio__pill p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 }
 
 /* ------------------------------------------------------- Plan / pasos ---- */
