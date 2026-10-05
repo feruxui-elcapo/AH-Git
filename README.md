@@ -58,11 +58,20 @@ Los breakpoints son los mismos que usaba el sitio original: `1200px`, `907px`, `
 
 ## Comportamientos
 
-- **Menú**: en desktop se ven los links; abajo de 810px aparece el botón hamburguesa.
-- **Hero**: slideshow de 3 imágenes con fundido, cambia cada 3 s (igual que el original).
+- **Menú**: aparece con una animación de entrada (la barra baja y los links entran uno a uno). Al pasar el mouse,
+  cada link se subraya con una línea que entra por la izquierda y sale por la derecha; el link de la sección que
+  se está viendo queda subrayado (igual que "Inicio" en el original). Al scrollear la barra gana sombra y el botón
+  "Contactar" se eleva con el hover. Abajo de 810px aparece la hamburguesa, que se convierte en X y despliega
+  los links escalonados; se cierra con Escape, tocando afuera o al elegir un link. Esto es **un agregado
+  deliberado**: el original no tenía ninguna animación de menú.
+- **Hero**: las 3 fotos se muestran al ~64% de opacidad sobre fondo negro (el original las atenúa con
+  `opacity .75 x .85`) y se **deslizan** hacia la izquierda cada 3 s en loop continuo (resorte sin rebote).
 - **"Qué hacemos"**: las palabras se van revelando (blur + opacidad) según el scroll.
 - **Contadores**: animan de 0 al valor final cuando la sección entra en pantalla.
-- **Trabajos**: carrusel con 2 tarjetas visibles en desktop, flechas siempre visibles, puntos y autoplay cada 5 s.
+- **Servicios**: las tarjetas **giran en 3D** al pasar el mouse (ver "Sobre los hovers").
+- **Pasos**: el texto de cada paso aparece sólo mientras se pasa el mouse por su ícono "i" (en touch, al tocarla).
+- **Trabajos**: carrusel en loop infinito con un punto por trabajo (15), 2 tarjetas por vista en desktop y 1 en
+  mobile, flechas siempre visibles y autoplay cada 5 s.
 - **WhatsApp**: el globito con el mensaje aparece visible desde que carga la página (como en el original) y se
   puede cerrar con la X; queda cerrado mientras dure la pestaña (`sessionStorage`).
 - Todo respeta `prefers-reduced-motion`: si el visitante pidió menos animaciones, se muestra sin movimiento.
@@ -73,32 +82,30 @@ Antes de escribir el CSS probé, uno por uno, los hovers reales del sitio de Fra
 genuinos, no simulados, comparando `getComputedStyle` antes/después): links del menú, los botones ("Contactar",
 "Ver más", "Ir a tienda"), logos de clientes, fotos del equipo, imágenes del carrusel de trabajos y los links
 del pie de página. **Ninguno tiene efecto hover** — ni cambio de color, ni de opacidad, ni de escala. Por eso
-esta versión tampoco les puso ninguno: es fiel al original, no que haya quedado incompleta.
-Las flechas del carrusel y el globito de WhatsApp están siempre visibles (ya reflejado arriba).
+esos elementos tampoco tienen ninguno acá (salvo el menú, que se animó a pedido, ver arriba).
 
-**La única interacción real de hover son las tarjetas de Servicios.** En reposo muestran foto, pill oscura con
-el nombre y el botón "Ver más". Al pasar el mouse la tarjeta pasa a fondo beige (`--beige`), la foto y el botón
-desaparecen, la pill queda transparente con el título en gris, y aparece una lista de 4 puntos con tilde que
-detalla el servicio (en "Capacitaciones" el título pasa a "Capacitaciones y acompañamiento"). En pantallas
-táctiles se tocan: tocar una tarjeta la expande, tocar otra cierra la anterior y tocar afuera las cierra todas.
-El texto de cada lista está en `index.html` (`.servicio__checklist`); los estilos del estado expandido, en
-`styles.css` bajo "Tarjeta expandida".
+**La interacción real de hover son las tarjetas de Servicios.** En el original la tarjeta cambia de golpe; acá
+se rediseñó como un **giro 3D** (`rotateY`, 0,8 s): el frente muestra la foto, la pill oscura con el nombre y el
+botón "Ver más"; el dorso es beige (`--beige`) con el título en gris y una lista de 4 puntos con tilde que
+detalla el servicio (en "Capacitaciones" el título pasa a "Capacitaciones y acompañamiento"). Los textos son
+los del original. En pantallas táctiles se tocan: tocar una tarjeta la gira, volver a tocarla la devuelve,
+tocar otra cierra la anterior y tocar afuera las cierra todas. El texto de cada lista está en `index.html`
+(`.servicio__checklist`) y los estilos del giro en `styles.css`, bajo "Tarjeta con giro 3D".
 
 ## Detalles heredados del sitio original (por si los querés cambiar)
 
 1. **Botones "Ver más" de Servicios**: en el sitio de Framer no tienen enlace, así que acá quedaron como
    `<button>` sin acción. Para activarlos, reemplazá el `<button class="btn btn--block">` por
    `<a class="btn btn--block" href="...">`.
-2. **Descripciones de los 4 pasos**: en el original están en color transparente y nunca se ven en desktop
-   (ni con hover) — un error de carga del sitio viejo. Se replicó tal cual: en desktop quedan invisibles,
-   en mobile sí se ven (ahí el original las fuerza visibles). Si en algún momento preferís mostrarlas siempre,
-   borrá `color: transparent;` de `.paso__text` en `styles.css`.
+2. **Descripciones de los 4 pasos**: en el original están en color transparente y **no se ven nunca** (ni con
+   hover, ni en mobile) — un error de carga del sitio viejo. Acá se corrigió a pedido: el texto aparece mientras
+   se pasa el mouse por la "i" de cada paso (en touch, al tocarla) y su lugar queda reservado para que nada salte.
 3. **Anclas del menú**: se mantuvieron los ids originales (`#sevices`, `#about`, `#team`, `#store`) para que
    cualquier link viejo siga funcionando. `#sevices` tiene ese error de tipeo desde el sitio anterior.
 4. **"Nuestras certificaciones"** usaba una variante de Helvetica Neue licenciada que Framer alojaba.
    Acá se usa la pila del sistema (`'Helvetica Neue', Helvetica, Arial`) para no incluir una fuente con licencia
    en el repo. Se ve prácticamente igual (es un texto de 12px).
-5. **Pie de página en mobile**: en el original las columnas se superponen; acá los bloques se apilan prolijos.
+
 
 ## Publicar
 

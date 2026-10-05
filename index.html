@@ -41,14 +41,21 @@
 <!-- ============================================================== Hero -->
 <section class="hero" id="top">
   <div class="hero__slideshow" data-slideshow data-interval="3000">
-    <div class="hero__slide is-active">
-      <img src="assets/img/hero-1.jpg" alt="Compostaje — Alternativa Humus" fetchpriority="high">
-    </div>
-    <div class="hero__slide">
-      <img src="assets/img/hero-2.png" alt="Compost producido por Alternativa Humus" loading="lazy">
-    </div>
-    <div class="hero__slide">
-      <img src="assets/img/hero-3.jpg" alt="Equipo de Alternativa Humus trabajando" loading="lazy">
+    <div class="hero__viewport">
+      <div class="hero__track" data-track>
+        <div class="hero__slide">
+          <img src="assets/img/hero-1.jpg" alt="Compostaje — Alternativa Humus" fetchpriority="high">
+        </div>
+        <div class="hero__slide">
+          <img src="assets/img/hero-2.png" alt="Compost producido por Alternativa Humus" decoding="async">
+        </div>
+        <div class="hero__slide">
+          <img src="assets/img/hero-3.jpg" alt="Equipo de Alternativa Humus trabajando" decoding="async">
+        </div>
+        <div class="hero__slide" aria-hidden="true" data-clone>
+          <img src="assets/img/hero-1.jpg" alt="" decoding="async">
+        </div>
+      </div>
     </div>
     <div class="dots" data-dots role="tablist" aria-label="Imágenes de portada"></div>
   </div>
@@ -80,60 +87,87 @@
     <div class="servicios__grid">
       <!-- En el sitio original el botón "Ver más" no tiene enlace todavía.
            Para activarlo, reemplazá <button> por <a href="..." class="btn btn--block">.
-           Al pasar el mouse (o tocar en mobile) la tarjeta cambia a fondo beige y
-           muestra el detalle del servicio; ver data-servicio-toggle en main.js. -->
-      <article class="servicio fade-up" data-servicio>
-        <div class="servicio__bg"><img src="assets/img/servicio-1.png" alt="" loading="lazy"></div>
-        <div class="servicio__body">
-          <div class="servicio__pill">
-            <div class="servicio__icon"><img src="assets/img/servicio-icono-1.png" alt="" loading="lazy"></div>
-            <p class="servicio__title--rest">Compostaje en organizaciones</p>
-            <p class="servicio__title--expanded">Compostaje en organizaciones</p>
+           Al pasar el mouse (o tocar en mobile) la tarjeta gira y muestra el detalle
+           del servicio en su cara trasera; ver servicios en main.js. -->
+      <article class="servicio fade-up" data-servicio tabindex="0">
+        <div class="servicio__flip">
+          <div class="servicio__face servicio__face--front">
+            <div class="servicio__bg"><img src="assets/img/servicio-1.png" alt="" loading="lazy"></div>
+            <div class="servicio__body">
+              <div class="servicio__pill">
+                <div class="servicio__icon"><img src="assets/img/servicio-icono-1.png" alt="" loading="lazy"></div>
+                <p class="servicio__title">Compostaje en organizaciones</p>
+              </div>
+            </div>
+            <button class="btn btn--block" type="button">Ver más</button>
           </div>
-          <ul class="servicio__checklist">
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Analizamos la operación y el volumen de residuos.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Diseñamos e instalamos el sistema más adecuado.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Capacitamos a los equipos involucrados.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Acompañamos la implementación</span></li>
-          </ul>
+          <div class="servicio__face servicio__face--back">
+            <div class="servicio__pill">
+              <div class="servicio__icon"><img src="assets/img/servicio-icono-1.png" alt="" loading="lazy"></div>
+              <p class="servicio__title">Compostaje en organizaciones</p>
+            </div>
+            <ul class="servicio__checklist">
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Analizamos la operación y el volumen de residuos.</span></li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Diseñamos e instalamos el sistema más adecuado.</span></li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Capacitamos a los equipos involucrados.</span></li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Acompañamos la implementación</span></li>
+            </ul>
+          </div>
         </div>
-        <button class="btn btn--block" type="button">Ver más</button>
       </article>
 
-      <article class="servicio fade-up" data-servicio>
-        <div class="servicio__bg"><img src="assets/img/servicio-2.png" alt="" loading="lazy"></div>
-        <div class="servicio__body">
-          <div class="servicio__pill">
-            <div class="servicio__icon"><img src="assets/img/servicio-icono-2.png" alt="" loading="lazy"></div>
-            <p class="servicio__title--rest">Retiro y valorización de residuos</p>
-            <p class="servicio__title--expanded">Retiro y valorización de residuos</p>
+      <article class="servicio fade-up" data-servicio tabindex="0">
+        <div class="servicio__flip">
+          <div class="servicio__face servicio__face--front">
+            <div class="servicio__bg"><img src="assets/img/servicio-2.png" alt="" loading="lazy"></div>
+            <div class="servicio__body">
+              <div class="servicio__pill">
+                <div class="servicio__icon"><img src="assets/img/servicio-icono-2.png" alt="" loading="lazy"></div>
+                <p class="servicio__title">Retiro y valorización de residuos</p>
+              </div>
+            </div>
+            <button class="btn btn--block" type="button">Ver más</button>
           </div>
-          <ul class="servicio__checklist">
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Retiro programado de residuos orgánicos.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Compostaje con registro y trazabilidad.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Entrega de métricas de impacto claras.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Posibilidad de recibir compost para huertas, jardines o proyectos propios.</span></li>
-          </ul>
+          <div class="servicio__face servicio__face--back">
+            <div class="servicio__pill">
+              <div class="servicio__icon"><img src="assets/img/servicio-icono-2.png" alt="" loading="lazy"></div>
+              <p class="servicio__title">Retiro y valorización de residuos</p>
+            </div>
+            <ul class="servicio__checklist">
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Retiro programado de residuos orgánicos.</span></li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Compostaje con registro y trazabilidad.</span></li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Entrega de métricas de impacto claras.</span></li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Posibilidad de recibir compost para huertas, jardines o proyectos propios.</span></li>
+            </ul>
+          </div>
         </div>
-        <button class="btn btn--block" type="button">Ver más</button>
       </article>
 
-      <article class="servicio fade-up" data-servicio>
-        <div class="servicio__bg"><img src="assets/img/servicio-3.png" alt="" loading="lazy"></div>
-        <div class="servicio__body">
-          <div class="servicio__pill">
-            <div class="servicio__icon"><img src="assets/img/servicio-icono-3.png" alt="" loading="lazy"></div>
-            <p class="servicio__title--rest">Capacitaciones</p>
-            <p class="servicio__title--expanded">Capacitaciones y acompañamiento</p>
+      <article class="servicio fade-up" data-servicio tabindex="0">
+        <div class="servicio__flip">
+          <div class="servicio__face servicio__face--front">
+            <div class="servicio__bg"><img src="assets/img/servicio-3.png" alt="" loading="lazy"></div>
+            <div class="servicio__body">
+              <div class="servicio__pill">
+                <div class="servicio__icon"><img src="assets/img/servicio-icono-3.png" alt="" loading="lazy"></div>
+                <p class="servicio__title">Capacitaciones</p>
+              </div>
+            </div>
+            <button class="btn btn--block" type="button">Ver más</button>
           </div>
-          <ul class="servicio__checklist">
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Talleres introductorios sobre sostenibilidad y compostaje.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Capacitaciones prácticas para implementar compostaje en la organización.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Mejora de la separación de residuos en el día a día.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Acompañamiento en la adopción de estas prácticas.</span></li>
-          </ul>
+          <div class="servicio__face servicio__face--back">
+            <div class="servicio__pill">
+              <div class="servicio__icon"><img src="assets/img/servicio-icono-3.png" alt="" loading="lazy"></div>
+              <p class="servicio__title">Capacitaciones y acompañamiento</p>
+            </div>
+            <ul class="servicio__checklist">
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Talleres introductorios sobre sostenibilidad y compostaje.</span></li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Capacitaciones prácticas para implementar compostaje en la organización.</span></li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Mejora de la separación de residuos en el día a día.</span></li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 2 2 4-4"></path><circle cx="10" cy="10" r="9"></circle></svg><span>Acompañamiento en la adopción de estas prácticas.</span></li>
+            </ul>
+          </div>
         </div>
-        <button class="btn btn--block" type="button">Ver más</button>
       </article>
     </div>
   </div>
@@ -148,44 +182,44 @@
       <article class="paso fade-up">
         <div class="paso__icon"><img src="assets/img/paso-1.png" alt="" loading="lazy"></div>
         <div class="paso__body">
-          <h3 class="h6 paso__title">Diagnóstico</h3>
-          <svg class="paso__info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"></circle><path d="M12 16v-6"></path><path d="M12 8h.01"></path>
-          </svg>
-          <p class="p paso__text">A través de una reunión escuchamos y entendemos cómo se generan y manejan hoy los residuos de tu empresa.</p>
+          <div class="paso__head">
+            <h3 class="h6 paso__title">Diagnóstico</h3>
+            <button class="paso__info" type="button" aria-label="Más información" aria-describedby="paso-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-6"></path><path d="M12 8h.01"></path></svg></button>
+          </div>
+          <p class="p paso__text" id="paso-1" role="tooltip">A través de una reunión escuchamos y entendemos cómo se generan y manejan hoy los residuos de tu empresa.</p>
         </div>
       </article>
 
       <article class="paso fade-up">
         <div class="paso__icon"><img src="assets/img/paso-2.png" alt="" loading="lazy"></div>
         <div class="paso__body">
-          <h3 class="h6 paso__title">Plan a medida</h3>
-          <svg class="paso__info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"></circle><path d="M12 16v-6"></path><path d="M12 8h.01"></path>
-          </svg>
-          <p class="p paso__text">Definimos la combinación de servicios (retiro, in situ, capacitaciones) que mejor se ajusta a tu operación.</p>
+          <div class="paso__head">
+            <h3 class="h6 paso__title">Plan a medida</h3>
+            <button class="paso__info" type="button" aria-label="Más información" aria-describedby="paso-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-6"></path><path d="M12 8h.01"></path></svg></button>
+          </div>
+          <p class="p paso__text" id="paso-2" role="tooltip">Definimos la combinación de servicios (retiro, in situ, capacitaciones) que mejor se ajusta a tu operación.</p>
         </div>
       </article>
 
       <article class="paso fade-up">
         <div class="paso__icon"><img src="assets/img/paso-3.png" alt="" loading="lazy"></div>
         <div class="paso__body">
-          <h3 class="h6 paso__title">Implementación</h3>
-          <svg class="paso__info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"></circle><path d="M12 16v-6"></path><path d="M12 8h.01"></path>
-          </svg>
-          <p class="p paso__text">Ponemos en marcha el sistema elegido, instalamos composteras o la gestión del retiro y capacitamos al equipo.</p>
+          <div class="paso__head">
+            <h3 class="h6 paso__title">Implementación</h3>
+            <button class="paso__info" type="button" aria-label="Más información" aria-describedby="paso-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-6"></path><path d="M12 8h.01"></path></svg></button>
+          </div>
+          <p class="p paso__text" id="paso-3" role="tooltip">Ponemos en marcha el sistema elegido, instalamos composteras o la gestión del retiro y capacitamos al equipo.</p>
         </div>
       </article>
 
       <article class="paso fade-up">
         <div class="paso__icon"><img src="assets/img/paso-4.png" alt="" loading="lazy"></div>
         <div class="paso__body">
-          <h3 class="h6 paso__title">Seguimiento</h3>
-          <svg class="paso__info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"></circle><path d="M12 16v-6"></path><path d="M12 8h.01"></path>
-          </svg>
-          <p class="p paso__text">Monitoreamos resultados, enviamos métricas e identificamos mejoras para potenciar el impacto y la comunicación.</p>
+          <div class="paso__head">
+            <h3 class="h6 paso__title">Seguimiento</h3>
+            <button class="paso__info" type="button" aria-label="Más información" aria-describedby="paso-4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-6"></path><path d="M12 8h.01"></path></svg></button>
+          </div>
+          <p class="p paso__text" id="paso-4" role="tooltip">Monitoreamos resultados, enviamos métricas e identificamos mejoras para potenciar el impacto y la comunicación.</p>
         </div>
       </article>
     </div>
@@ -505,6 +539,7 @@
 <!-- ============================================================ Footer -->
 <footer class="footer">
   <div class="footer__inner">
+    <div class="footer__col footer__col--left">
     <a class="footer__logo" href="#top" aria-label="Alternativa Humus — inicio">
       <img src="assets/img/logo-footer.png" alt="Alternativa Humus" loading="lazy">
     </a>
@@ -531,20 +566,14 @@
       </div>
     </div>
 
+    </div>
+
+    <div class="footer__col footer__col--right">
     <div class="footer__downloads">
       <span class="footer__value">Descargas:</span>
-      <a class="footer__label" href="https://drive.google.com/file/d/1u8T6Aa7CBZojR6C3HHOivi8of7sryFy3/view?usp=sharing" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:-6px;margin-right:10px">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path>
-        </svg>Brochure</a>
-      <a class="footer__label" href="https://drive.google.com/file/d/1WXjpplaHBAZos-UBJIV50Oa-QGS1-40S/view?usp=drive_link" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:-6px;margin-right:10px">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path>
-        </svg>Manual de compostaje</a>
-      <a class="footer__label" href="https://drive.google.com/file/d/1S1Bg4UU4yi3s3zz-gnIAIuhA1rWBTC3q/view?usp=drive_link" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:-6px;margin-right:10px">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path>
-        </svg>Manual de uso de composteras</a>
+      <a class="footer__label footer__link" href="https://drive.google.com/file/d/1u8T6Aa7CBZojR6C3HHOivi8of7sryFy3/view?usp=sharing" target="_blank" rel="noopener">Brochure<svg viewBox="0 0 24 24" fill="none" stroke="rgb(217, 217, 217)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg></a>
+      <a class="footer__label footer__link" href="https://drive.google.com/file/d/1WXjpplaHBAZos-UBJIV50Oa-QGS1-40S/view?usp=drive_link" target="_blank" rel="noopener">Manual de compostaje<svg viewBox="0 0 24 24" fill="none" stroke="rgb(217, 217, 217)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg></a>
+      <a class="footer__label footer__link" href="https://drive.google.com/file/d/1S1Bg4UU4yi3s3zz-gnIAIuhA1rWBTC3q/view?usp=drive_link" target="_blank" rel="noopener">Manual de uso de composteras<svg viewBox="0 0 24 24" fill="none" stroke="rgb(217, 217, 217)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg></a>
     </div>
 
     <div class="footer__social">
@@ -567,6 +596,7 @@
           <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
         </svg>
       </a>
+    </div>
     </div>
   </div>
 </footer>
